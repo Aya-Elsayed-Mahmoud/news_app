@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:news_app/app_theme.dart';
 
 class HomeDrawer extends StatelessWidget {
-  const HomeDrawer({super.key});
+  const HomeDrawer({super.key, required this.onItemSelected});
 
+  final void Function(DrawerItem) onItemSelected;
   @override
   Widget build(BuildContext context) {
     final titleLargeStyle =
@@ -30,7 +31,7 @@ class HomeDrawer extends StatelessWidget {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => onItemSelected(DrawerItem.categories),
                   child: Row(
                     children: [
                       Icon(Icons.menu),
@@ -48,7 +49,7 @@ class HomeDrawer extends StatelessWidget {
                   height: 12,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => onItemSelected(DrawerItem.Settings),
                   child: Row(
                     children: [
                       Icon(Icons.settings_rounded),
@@ -69,4 +70,8 @@ class HomeDrawer extends StatelessWidget {
       ),
     );
   }
+}
+enum DrawerItem {
+  categories,
+  Settings;
 }
