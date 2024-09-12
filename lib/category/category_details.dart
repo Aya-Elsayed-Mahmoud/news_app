@@ -16,30 +16,5 @@ class _CategoryDetailsState extends State<CategoryDetails> {
   final sources = List.generate(10, (index) => 'Source$index');
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DefaultTabController(
-          length: sources.length,
-          child: TabBar(
-            isScrollable: true,
-            indicatorColor: Colors.transparent,
-            dividerColor: Colors.transparent,
-            tabAlignment: TabAlignment.start,
-            onTap: (index) => setState(() => selectedTabIndex = index),
-            tabs: sources
-                .map((source) => TabItem(
-                      isSelected: source.indexOf(source) == selectedTabIndex,
-                      source: source,
-                    ))
-                .toList(),
-          ),
-        ),
-        Expanded(
-            child: ListView.builder(
-          itemBuilder: (_, index) => NewsItem(),
-          itemCount: 10,
-        ))
-      ],
-    );
-  }
+    return Column();
 }
